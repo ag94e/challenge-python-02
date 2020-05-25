@@ -1,12 +1,25 @@
 # Resolve the problem!!
 import string
+import random
 
 SYMBOLS = list('!"#$%&\'()*+,-./:;?@[]^_`{|}~')
 
-
 def generate_password():
-    # Start coding here
-
+    new_pass = ''
+    lenght_pass = random.randint(8,16)
+    new_pass += ''.join(random.choice(string.ascii_lowercase))
+    new_pass += ''.join(random.choice(string.digits))
+    new_pass += ''.join(random.choice(string.ascii_uppercase))
+    new_pass += ''.join(random.choice(SYMBOLS))
+    for i in range (lenght_pass - 4):
+        choice = random.randint(0,2)
+        if choice == 0:
+            new_pass += ''.join(random.choice(string.ascii_letters))
+        elif choice == 1:
+            new_pass += ''.join(random.choice(string.digits))
+        else:
+            new_pass += ''.join(random.choice(SYMBOLS))
+    return new_pass
 
 def validate(password):
 
